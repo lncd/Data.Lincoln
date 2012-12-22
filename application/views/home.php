@@ -24,6 +24,8 @@
 		
 		<p>Getting our data is easy. Just pick a catalogue to see what's available.</p>
 		
+		<div class="columns-2">
+		
 		<ul class="nav nav-pills nav-stacked">
 		
 		<?php
@@ -36,6 +38,8 @@
 		?>
 		
 		</ul>
+		
+		</div>
 	
 	</div>
 	

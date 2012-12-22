@@ -6,8 +6,53 @@
 	
 if (count($datasets) > 0):
 
-else:
+?>
 
+<?php echo auto_typography($catalogue->blurb); ?>
+
+<h3>Datasets</h3>
+
+<ul id="resourceTabs" class="nav nav-tabs">
+
+<?php
+foreach ($datasets as $dataset):
+?>
+
+<li><a href="#dset-tab-<?php echo $dataset->id; ?>" data-toggle="tab"><?php echo $dataset->name; ?></a></li>
+
+<?php
+endforeach;
+?>
+
+</ul>
+
+<div id="resourceTabsContent" class="tab-content">
+
+<?php
+foreach ($datasets as $dataset):
+?>
+
+<div class="tab-pane fade" id="dset-tab-<?php echo $dataset->id; ?>">
+	<div class="row">
+		<div class="span9">
+			<?php echo auto_typography($dataset->blurb); ?>
+		</div>
+		<div class="span4">
+			<div class="well">
+				<h4>Licence</h4>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php
+endforeach;
+?>
+
+</div>
+
+<?php
+else:
 ?>
 
 <img src="<?php echo base_url(); ?>assets/img/error.png" style="float:right;padding-left:25px;height:180px;width:180px;">

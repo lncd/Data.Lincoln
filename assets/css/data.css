@@ -12,3 +12,9 @@
 	background-repeat: no-repeat;
 	padding-right: 225px;
 }
+
+.columns-2 {
+	columns: 2;
+	-webkit-columns: 2;
+	-moz-columns: 2;
+}
