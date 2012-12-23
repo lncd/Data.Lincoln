@@ -18,7 +18,7 @@ if (count($datasets) > 0):
 foreach ($datasets as $dataset):
 ?>
 
-<li><a href="#dset-tab-<?php echo $dataset->id; ?>" data-toggle="tab"><?php echo $dataset->name; ?></a></li>
+<li><a href="#dset-tab-<?php echo $dataset->dataset_id; ?>" data-toggle="tab"><?php echo $dataset->dataset_name; ?></a></li>
 
 <?php
 endforeach;
@@ -32,14 +32,16 @@ endforeach;
 foreach ($datasets as $dataset):
 ?>
 
-<div class="tab-pane fade" id="dset-tab-<?php echo $dataset->id; ?>">
+<div class="tab-pane fade" id="dset-tab-<?php echo $dataset->dataset_id; ?>">
 	<div class="row">
-		<div class="span9">
-			<?php echo auto_typography($dataset->blurb); ?>
+		<div class="span8">
+			<?php echo auto_typography($dataset->dataset_blurb); ?>
 		</div>
 		<div class="span4">
 			<div class="well">
-				<h4>Licence</h4>
+				<h4><?php echo $dataset->licence_name; ?></h4>
+				
+				<p>This dataset is made available under the <?php echo $dataset->licence_name; ?>: <a href="<?php echo $dataset->licence_url; ?>"><?php echo $dataset->licence_url; ?></a>.</p>
 			</div>
 		</div>
 	</div>
