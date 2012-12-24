@@ -11,6 +11,7 @@ class Dataset_model extends CI_Model {
         	->select('datasets.blurb as dataset_blurb')
         	->select('licences.name as licence_name')
         	->select('licences.url as licence_url')
+        	->select('licences.statement as licence_statement')
         	->join('licences', 'licences.id = datasets.licence_id')
         	->order_by('datasets.name')
         	->get('datasets');

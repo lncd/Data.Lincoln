@@ -41,7 +41,15 @@ foreach ($datasets as $dataset):
 			<div class="well">
 				<h4><?php echo $dataset->licence_name; ?></h4>
 				
+				<?php if ($dataset->licence_statement !== NULL): ?>
+				
+				<?php echo auto_typography($dataset->licence_statement); ?>
+				
+				<?php else: ?>
+				
 				<p>This dataset is made available under the <?php echo $dataset->licence_name; ?>: <a href="<?php echo $dataset->licence_url; ?>"><?php echo $dataset->licence_url; ?></a>.</p>
+				
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
