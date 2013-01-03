@@ -14,7 +14,7 @@
 		
 		<p>Data.Lincoln provides you with a collection of Open Data from the University of Lincoln, under licences which encourage you to use the data for just about anything.</p>
 		
-		<p>Open Data helps to make the world a better place by making if faster and easier to find out information.</p>
+		<p>Open Data helps to make the world a better place by making it faster and easier to get information, as well as encouraging people to build new ways of viewing, analyzing and understanding data.</p>
 	
 	</div>
 	
@@ -23,8 +23,6 @@
 		<h3>Get The Data</h3>
 		
 		<p>Getting our data is easy. Just pick a catalogue to see what's available.</p>
-		
-		<div class="columns-2">
 		
 		<ul class="nav nav-pills nav-stacked">
 		
@@ -38,8 +36,6 @@
 		?>
 		
 		</ul>
-		
-		</div>
 	
 	</div>
 	

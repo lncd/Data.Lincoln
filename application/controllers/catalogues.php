@@ -12,6 +12,7 @@ class Catalogues extends CI_Controller {
 		
 			$this->load->model('dataset_model');
 			$this->load->model('resource_model');
+			$this->load->helper('text');
 			
 			$data['catalogue'] = $catalogue;
 			$data['datasets'] = $this->dataset_model->in_catalogue($catalogue->id);

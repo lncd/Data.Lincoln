@@ -19,6 +19,8 @@ class Render extends CI_Controller {
 		$fp = fopen('data/locations.csv', 'w');
 		
 		fputcsv($fp, array(
+			'Unique ID',
+			'URI',
 			'Estates Code',
 			'Name',
 			'Parent Location'
@@ -27,6 +29,8 @@ class Render extends CI_Controller {
 		foreach ($locations->results as $location)
 		{
 			fputcsv($fp, array(
+				$location->id,
+				'http://id.lincoln.ac.uk/location/' . $location->id,
 				$location->estates_code,
 				$location->name,
 				$location->parent_location !== NULL ? $location->parent_location->estates_code : NULL
@@ -47,6 +51,8 @@ class Render extends CI_Controller {
 		$fp = fopen('data/buildings.csv', 'w');
 		
 		fputcsv($fp, array(
+			'Unique ID',
+			'URI',
 			'Estates Code',
 			'Name',
 			'Location',
@@ -63,6 +69,8 @@ class Render extends CI_Controller {
 			$building_data = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'buildings/id/' . $building->id . '?access_token=' . $_SERVER['NUCLEUS_TOKEN']));
 		
 			fputcsv($fp, array(
+				$building_data->result->id,
+				'http://id.lincoln.ac.uk/building/' . $building_data->result->id,
 				$building_data->result->estates_code,
 				$building_data->result->name,
 				$building_data->result->location !== NULL ? $building_data->result->location->name : NULL,

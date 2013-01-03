@@ -7,10 +7,12 @@ class Resource_model extends CI_Model {
         $query = $this->db
         	->where('dataset_id', $dataset_id)
         	->select('resources.id as resource_id')
+        	->select('resources.name as resource_name')
         	->select('resources.uri as resource_uri')
         	->select('formats.name as format_name')
         	->join('formats', 'formats.id = resources.format_id')
         	->order_by('formats.name')
+        	->order_by('resources.name')
         	->get('resources');
         return $query->result();
     }

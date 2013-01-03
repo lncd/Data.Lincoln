@@ -11,6 +11,7 @@ class Dataset_model extends CI_Model {
         	->select('datasets.blurb as dataset_blurb')
         	->select('datasets.corrections_name as corrections_name')
         	->select('datasets.corrections_email as corrections_email')
+        	->select('datasets.stars as dataset_stars')
         	->select('licences.name as licence_name')
         	->select('licences.url as licence_url')
         	->select('licences.statement as licence_statement')

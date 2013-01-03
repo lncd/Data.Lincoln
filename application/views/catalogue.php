@@ -52,8 +52,9 @@ foreach ($datasets as $dataset):
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th>Format</th>
+						<th>Name</th>
 						<th>URL</th>
+						<th>Format</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -61,8 +62,9 @@ foreach ($datasets as $dataset):
 					<?php foreach ($resources[$dataset->dataset_id] as $resource): ?>
 					
 					<tr>
+						<td><?php echo $resource->resource_name; ?></td>
+						<td><code><a href="<?php echo $resource->resource_uri; ?>"><?php echo ellipsize($resource->resource_uri, 50, .5); ?></a></code></td>
 						<td><?php echo $resource->format_name; ?></td>
-						<td><a href="<?php echo $resource->resource_uri; ?>"><?php echo $resource->resource_uri; ?></a></td>
 					</tr>
 					
 					<?php endforeach; ?>
@@ -93,6 +95,19 @@ foreach ($datasets as $dataset):
 				
 				<p>If you spot an error in this dataset please email corrections to <?php echo $dataset->corrections_name; ?> at <a href="mailto:<?php echo $dataset->corrections_email; ?>"><?php echo $dataset->corrections_email; ?></a>.</p>
 				
+			</div>
+			
+			<div class="well">
+			
+				<h4>Data Quality</h4>
+				
+				<p class="lead">This is <?php echo $dataset->dataset_stars; ?> ★ Data<br>
+				<img src="<?php echo base_url(); ?>assets/img/stars/badge-<?php echo $dataset->dataset_stars; ?>.png"></p>
+				
+				<p>We rate all of the data on Data.Lincoln against <a href="http://5stardata.info/">5 ★ Open Data</a> criteria.<p>
+			
+				<small>Badge from <a href="http://lab.linkeddata.deri.ie/2010/lod-badges/">Linked Open Data Star Badges</a></small>
+			
 			</div>
 			
 		</div>
