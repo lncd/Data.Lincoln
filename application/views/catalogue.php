@@ -15,12 +15,18 @@ if (count($datasets) > 0):
 <ul id="resourceTabs" class="nav nav-tabs">
 
 <?php
+
+$active = ' active';
+
 foreach ($datasets as $dataset):
 ?>
 
-<li><a href="#dset-tab-<?php echo $dataset->dataset_id; ?>" data-toggle="tab"><?php echo $dataset->dataset_name; ?></a></li>
+<li class="<?php echo $active; ?>"><a href="#dset-tab-<?php echo $dataset->dataset_id; ?>" data-toggle="tab"><?php echo $dataset->dataset_name; ?></a></li>
 
 <?php
+
+$active = '';
+
 endforeach;
 ?>
 
@@ -29,10 +35,14 @@ endforeach;
 <div id="resourceTabsContent" class="tab-content">
 
 <?php
+
+$active = ' in active';
+
 foreach ($datasets as $dataset):
+
 ?>
 
-<div class="tab-pane fade" id="dset-tab-<?php echo $dataset->dataset_id; ?>">
+<div class="tab-pane fade<?php echo $active; ?>" id="dset-tab-<?php echo $dataset->dataset_id; ?>">
 	<div class="row">
 	
 		<div class="span8">
@@ -90,7 +100,11 @@ foreach ($datasets as $dataset):
 </div>
 
 <?php
+
+$active = '';
+
 endforeach;
+
 ?>
 
 </div>
