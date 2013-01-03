@@ -77,4 +77,98 @@ class Render extends CI_Controller {
 		fclose($fp);
 		
 	}
+	
+	public function buildings_kml()
+	{
+	
+		echo 'Buildings KML' . PHP_EOL;
+		
+		$fp = fopen('data/buildings.kml', 'w');
+		
+		fwrite($fp, '<' . '?xml version="1.0" encoding="UTF-8"?' . '>' . "\n");
+
+		$data = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'buildings?limit=200&access_token=' . $_SERVER['NUCLEUS_TOKEN']));
+		
+		fwrite($fp, '<kml xmlns="http://www.opengis.net/kml/2.2">' . "\n");
+		fwrite($fp, '<Document>' . "\n");
+		fwrite($fp, '<name>University of Lincoln</name>' . "\n");
+		
+		foreach ($data->results as $building)
+		{
+		
+			if ($building->latitude !== NULL AND $building->longitude != NULL)
+			{
+			
+				if ($building->osm_way_id !== NULL)
+				{
+				
+					$osm = simplexml_load_file('http://openstreetmap.org/api/0.6/way/' . $building->osm_way_id);
+					
+					$building_data = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'buildings/id/' . $building->id . '?access_token=' . $_SERVER['NUCLEUS_TOKEN']));
+					
+					$building_nodes = array();
+					
+					foreach($osm->way->nd as $node)
+					{
+						$attributes = $node->attributes();
+						$node_data = simplexml_load_file('http://openstreetmap.org/api/0.6/node/' . $attributes->ref);
+						unset($attributes);
+						$node_attributes = $node_data->node->attributes();
+						$building_nodes[] = array(
+							'lat' => $node_attributes->lat,
+							'lon' => $node_attributes->lon
+						);
+						unset($node_data);
+					}
+					
+					unset($osm);
+					
+					$building->height = max(4, 4 * count($building_data->result->components));
+					
+					$building->edge_nodes = $building_nodes;
+					unset($building_nodes);
+					
+				}
+				
+				fwrite($fp, '<Placemark>' . "\n");
+				fwrite($fp, '<name>' . htmlspecialchars($building->name) . '</name>' . "\n");
+				
+				if (count($building->edge_nodes) > 0)
+				{
+				
+					fwrite($fp, '<Polygon>' . "\n");
+					fwrite($fp, '<extrude>1</extrude>' . "\n");
+					fwrite($fp, '<altitudeMode>relativeToGround</altitudeMode>' . "\n");
+					fwrite($fp, '<outerBoundaryIs>' . "\n");
+					fwrite($fp, '<LinearRing>' . "\n");
+					fwrite($fp, '<coordinates>');
+				
+					foreach ($building->edge_nodes as $edge_node)
+					{
+						fwrite($fp, "\n" . $edge_node['lon'] . ',' . $edge_node['lat'] . ',' . $building->height);
+					}
+					
+					fwrite($fp, "\n" . '</coordinates>' . "\n");
+					fwrite($fp, '</LinearRing>' . "\n");
+					fwrite($fp, '</outerBoundaryIs>' . "\n");
+					fwrite($fp, '</Polygon>' . "\n");
+				}
+				else
+				{
+					fwrite($fp, '<Point>' . "\n");
+					fwrite($fp, '<coordinates>' . $building->longitude . ',' . $building->latitude . ',0</coordinates>' . "\n");
+					fwrite($fp, '</Point>' . "\n");
+				}
+				
+				fwrite($fp, '</Placemark>' . "\n");
+			
+			}
+		}
+		
+		fwrite($fp, '</Document>' . "\n");
+		fwrite($fp, '</kml>');
+		
+		fclose($fp);
+		
+	}
 }
