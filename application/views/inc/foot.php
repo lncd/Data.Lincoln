@@ -9,7 +9,7 @@
 		<div class="row">
 
 			<div class="span8">
-				&copy; University of Lincoln &middot; <a href="http://www.vecteezy.com/technology/166-happy-space-vector-pack">Happy Space images</a> by <a href="http://www.vecteezy.com/members/basicshift">BasicShift</a> &middot; <a href="https://github.com/teambox/Free-file-icons">File type icons</a> by <a href="http://teambox.com/">Teambox</a><br>
+				&copy; University of Lincoln &middot; <a href="http://www.vecteezy.com/technology/166-happy-space-vector-pack">Happy Space images</a> by <a href="http://www.vecteezy.com/members/basicshift">BasicShift</a><br>
 				Developed by <a href="http://lncd.org">LNCD</a>
 			</div>
 
