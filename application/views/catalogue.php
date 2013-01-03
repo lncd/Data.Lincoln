@@ -81,7 +81,7 @@ foreach ($datasets as $dataset):
 			<div class="well">
 				<h4>Corrections</h4>
 				
-				<p>If you spot an error in this dataset please email corrections to FOO at BAR.</p>
+				<p>If you spot an error in this dataset please email corrections to <?php echo $dataset->corrections_name; ?> at <a href="mailto:<?php echo $dataset->corrections_email; ?>"><?php echo $dataset->corrections_email; ?></a>.</p>
 				
 			</div>
 			
