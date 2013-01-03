@@ -3,14 +3,28 @@
 	background-position: right bottom;
 	background-repeat: no-repeat;
 	min-height: 80px;
-	padding-right: 225px;
+	padding-right: 210px;
 }
 
 .hero-share {
 	background-image: url(/assets/img/hero-share.png);
 	background-position: right center;
 	background-repeat: no-repeat;
-	padding-right: 225px;
+	padding-right: 210px;
+}
+
+.hero-develop {
+	background-image: url(/assets/img/hero-develop.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-right: 210px;
+}
+
+.hero-faq {
+	background-image: url(/assets/img/hero-faq.png);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	padding-right: 135px;
 }
 
 .columns-2 {

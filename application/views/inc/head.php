@@ -54,8 +54,8 @@
 							<div class="nav-collapse">
 
 								<ul class="nav">
+								
 									<li<?php if ($page == 'home') echo ' class="active"'; ?>><a href="<?php echo site_url(); ?>">Home</a></li>
-
 									<li class="<?php if ($page == 'catalogue') echo 'active '; ?>dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 											Catalogues
@@ -75,8 +75,9 @@
 											?>
 										</ul>
 									</li>
-									
 									<li<?php if ($page == 'share') echo ' class="active"'; ?>><a href="<?php echo site_url('share'); ?>">Share</a></li>
+									<li<?php if ($page == 'develop') echo ' class="active"'; ?>><a href="<?php echo site_url('develop'); ?>">Develop</a></li>
+									
 								</ul>
 
 							</div>

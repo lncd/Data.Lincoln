@@ -34,10 +34,36 @@ foreach ($datasets as $dataset):
 
 <div class="tab-pane fade" id="dset-tab-<?php echo $dataset->dataset_id; ?>">
 	<div class="row">
+	
 		<div class="span8">
+		
 			<?php echo auto_typography($dataset->dataset_blurb); ?>
+			
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Format</th>
+						<th>URL</th>
+					</tr>
+				</thead>
+				<tbody>
+			
+					<?php foreach ($resources[$dataset->dataset_id] as $resource): ?>
+					
+					<tr>
+						<td><?php echo $resource->format_name; ?></td>
+						<td><a href="<?php echo $resource->resource_uri; ?>"><?php echo $resource->resource_uri; ?></a></td>
+					</tr>
+					
+					<?php endforeach; ?>
+					
+				</tbody>
+			</table>
+			
 		</div>
+		
 		<div class="span4">
+		
 			<div class="well">
 				<h4><?php echo $dataset->licence_name; ?></h4>
 				
@@ -51,6 +77,14 @@ foreach ($datasets as $dataset):
 				
 				<?php endif; ?>
 			</div>
+			
+			<div class="well">
+				<h4>Corrections</h4>
+				
+				<p>If you spot an error in this dataset please email corrections to FOO at BAR.</p>
+				
+			</div>
+			
 		</div>
 	</div>
 </div>
