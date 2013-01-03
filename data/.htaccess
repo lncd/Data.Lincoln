@@ -1,1 +1,4 @@
 Options -Indexes
+
+AddType text/csv .csv
+AddType application/vnd.google-earth.kml+xml .kml
