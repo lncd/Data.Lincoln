@@ -2,7 +2,7 @@
 
 	<h1>Unleash the data!</h1>
 	
-	<p>The University of Lincoln is opening up some of its institutional data for you to do something cool with.</p>
+	<p>The University of Lincoln is opening its institutional data for you to do something cool with.</p>
 
 </div>
 
@@ -12,7 +12,7 @@
 	
 		<h3>What?</h3>
 		
-		<p>Data.Lincoln provides you with a collection of Open Data from the University of Lincoln, under licences which encourage you to use the data for just about anything.</p>
+		<p>Data.Lincoln gives you access to all of the University of Lincoln's Open Data, under licences which encourage you to use the data for just about anything.</p>
 		
 		<p>Open Data helps to make the world a better place by making it faster and easier to get information, as well as encouraging people to build new ways of viewing, analyzing and understanding data.</p>
 	
