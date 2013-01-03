@@ -21,8 +21,7 @@ class Render extends CI_Controller {
 		fputcsv($fp, array(
 			'Estates Code',
 			'Name',
-			'Parent Location',
-			'X'
+			'Parent Location'
 		));
 		
 		foreach ($locations->results as $location)
@@ -30,8 +29,7 @@ class Render extends CI_Controller {
 			fputcsv($fp, array(
 				$location->estates_code,
 				$location->name,
-				$location->parent_location !== NULL ? $location->parent_location->estates_code : NULL,
-				'X'
+				$location->parent_location !== NULL ? $location->parent_location->estates_code : NULL
 			));
 		}
 		
