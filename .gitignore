@@ -5,5 +5,3 @@
 */cache/*
 !*/cache/index.html
 render_run.sh
-data/*
-!data/.htaccess
