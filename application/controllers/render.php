@@ -9,38 +9,6 @@ class Render extends CI_Controller {
 		
 	}
 	
-	public function locations_csv()
-	{
-	
-		echo 'Locations CSV' . PHP_EOL;
-		
-		$locations = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'locations?access_token=' . $_SERVER['NUCLEUS_TOKEN'] . '&limit=10000'));
-		
-		$fp = fopen('data/locations.csv', 'w');
-		
-		fputcsv($fp, array(
-			'Unique ID',
-			'URI',
-			'Estates Code',
-			'Name',
-			'Parent Location'
-		));
-		
-		foreach ($locations->results as $location)
-		{
-			fputcsv($fp, array(
-				$location->id,
-				'http://id.lincoln.ac.uk/location/' . $location->id,
-				$location->estates_code,
-				$location->name,
-				$location->parent_location !== NULL ? $location->parent_location->estates_code : NULL
-			));
-		}
-		
-		fclose($fp);
-		
-	}
-	
 	public function buildings_csv()
 	{
 	
@@ -175,6 +143,132 @@ class Render extends CI_Controller {
 		
 		fwrite($fp, '</Document>' . "\n");
 		fwrite($fp, '</kml>');
+		
+		fclose($fp);
+		
+	}
+	
+	public function colleges_csv()
+	{
+	
+		echo 'Colleges CSV' . PHP_EOL;
+		
+		$colleges = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'colleges?access_token=' . $_SERVER['NUCLEUS_TOKEN'] . '&limit=10000'));
+		
+		$fp = fopen('data/colleges.csv', 'w');
+		
+		fputcsv($fp, array(
+			'Unique ID',
+			'URI',
+			'Code',
+			'Name'
+		));
+		
+		foreach ($colleges->results as $college)
+		{
+			fputcsv($fp, array(
+				$college->id,
+				$college->uri,
+				$college->code,
+				$college->title
+			));
+		}
+		
+		fclose($fp);
+		
+	}
+	
+	public function faculties_csv()
+	{
+	
+		echo 'Faculties CSV' . PHP_EOL;
+		
+		$faculties = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'faculties?access_token=' . $_SERVER['NUCLEUS_TOKEN'] . '&limit=10000'));
+		
+		$fp = fopen('data/faculties.csv', 'w');
+		
+		fputcsv($fp, array(
+			'Unique ID',
+			'URI',
+			'Code',
+			'Name',
+			'College'
+		));
+		
+		foreach ($faculties->results as $faculty)
+		{
+			fputcsv($fp, array(
+				$faculty->id,
+				'http://id.lincoln.ac.uk/faculty/' . $location->id,
+				$faculty->code,
+				$faculty->title,
+				$faculty->college !== NULL ? $faculty->college->code : NULL
+			));
+		}
+		
+		fclose($fp);
+		
+	}
+	
+	public function locations_csv()
+	{
+	
+		echo 'Locations CSV' . PHP_EOL;
+		
+		$locations = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'locations?access_token=' . $_SERVER['NUCLEUS_TOKEN'] . '&limit=10000'));
+		
+		$fp = fopen('data/locations.csv', 'w');
+		
+		fputcsv($fp, array(
+			'Unique ID',
+			'URI',
+			'Estates Code',
+			'Name',
+			'Parent Location'
+		));
+		
+		foreach ($locations->results as $location)
+		{
+			fputcsv($fp, array(
+				$location->id,
+				'http://id.lincoln.ac.uk/location/' . $location->id,
+				$location->estates_code,
+				$location->name,
+				$location->parent_location !== NULL ? $location->parent_location->estates_code : NULL
+			));
+		}
+		
+		fclose($fp);
+		
+	}
+	
+	public function schools_csv()
+	{
+	
+		echo 'Schools CSV' . PHP_EOL;
+		
+		$schools = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'schools?access_token=' . $_SERVER['NUCLEUS_TOKEN'] . '&limit=10000'));
+		
+		$fp = fopen('data/schools.csv', 'w');
+		
+		fputcsv($fp, array(
+			'Unique ID',
+			'URI',
+			'Code',
+			'Name',
+			'College'
+		));
+		
+		foreach ($schools->results as $school)
+		{
+			fputcsv($fp, array(
+				$school->id,
+				$school->uri,
+				$school->code,
+				$school->title,
+				$school->faculty !== NULL ? $school->faculty->code : NULL
+			));
+		}
 		
 		fclose($fp);
 		
