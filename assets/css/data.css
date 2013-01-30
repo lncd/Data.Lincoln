@@ -32,3 +32,35 @@
 	-webkit-columns: 2;
 	-moz-columns: 2;
 }
+
+#cwd-header {
+	background: #573e72;
+	
+}
+
+/* main navigation bar color */
+#cwd-header .navbar .navbar-inner {
+	background: #3f2c53;
+}
+
+/* navigation item color */
+#cwd-header .navbar .navbar-inner ul li a {
+	background-color: #3f2c53;
+}
+
+/* navigation item hover color */
+#cwd-header .navbar .navbar-inner ul li a:hover {
+	background-color: #764da0;
+}
+
+/* navigation item active and open (for dropdowns) color */
+#cwd-header .navbar .navbar-inner ul li.active a,
+#cwd-header .navbar .navbar-inner ul li.open a {
+	background: #2b183f;
+}
+
+/* navigation item active and open hover color */
+#cwd-header .navbar .navbar-inner ul li.active a:hover,
+#cwd-header .navbar .navbar-inner ul li.open a:hover {
+	background: #2b183f;
+}
