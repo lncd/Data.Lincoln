@@ -6,8 +6,6 @@
 
 </div>
 
-<div class="row">
-
 <p>We encourage developers to take our data and build something amazing with it, so don't hold back. We'd love to hear about anything that you've made using our data!</p>
 
 <h3>Want More?</h3>
