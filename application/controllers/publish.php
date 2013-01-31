@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Share extends CI_Controller {
+class Publish extends CI_Controller {
 
 	public function index()
 	{
 	
-		$header['page'] = 'share';
+		$header['page'] = 'publish';
 	
 		$this->load->view('inc/head', $header);
-		$this->load->view('share');
+		$this->load->view('publish');
 		$this->load->view('inc/foot');
 		
 	}

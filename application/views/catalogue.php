@@ -93,7 +93,7 @@ foreach ($datasets as $dataset):
 			<div class="well">
 				<h4>Corrections</h4>
 				
-				<p>If you spot an error in this dataset please email corrections to <?php echo $dataset->corrections_name; ?> at <a href="mailto:<?php echo $dataset->corrections_email; ?>"><?php echo $dataset->corrections_email; ?></a>.</p>
+				<p>If you find an error in this dataset please email corrections to <?php echo $dataset->corrections_name; ?> at <a href="mailto:<?php echo $dataset->corrections_email; ?>"><?php echo $dataset->corrections_email; ?></a>.</p>
 				
 			</div>
 			
@@ -130,9 +130,9 @@ else:
 
 <img src="<?php echo base_url(); ?>assets/img/error.png" style="float:right;padding-left:25px;height:180px;width:180px;">
 
-<p class="lead">It looks like there isn't any Open Data available in the <?php echo $catalogue->name; ?> catalogue yet. Sorry about that.</p>
+<p class="lead">There isn't any data available in the <?php echo $catalogue->name; ?> catalogue yet.</p>
 
-<p>If you own any data that would belong in this catalogue then why not consider <a href="<?php echo site_url('share'); ?>">sharing your data</a>?
+<p>If you own any data that would belong in this catalogue then why not consider <a href="<?php echo site_url('publish'); ?>">publishing your data</a>?
 
 <?php
 endif;

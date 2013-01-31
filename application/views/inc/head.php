@@ -75,7 +75,7 @@
 											?>
 										</ul>
 									</li>
-									<li<?php if ($page == 'share') echo ' class="active"'; ?>><a href="<?php echo site_url('share'); ?>">Share</a></li>
+									<li<?php if ($page == 'publish') echo ' class="active"'; ?>><a href="<?php echo site_url('publish'); ?>">Publish</a></li>
 									<li<?php if ($page == 'develop') echo ' class="active"'; ?>><a href="<?php echo site_url('develop'); ?>">Develop</a></li>
 									
 								</ul>

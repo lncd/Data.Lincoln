@@ -1,17 +1,19 @@
 <div class="hero-unit hero-develop">
 
-	<h1>Developers!</h1>
+	<h1>Ready. Set. Code.</h1>
 	
-	<p>Developers! Developers! Developers!</p>
+	<p>Are you a developer? Here's our stuff.</p>
 
 </div>
 
-<p>If you're a developer and you want to use our data, feel free. Just make sure that you follow the terms of the data's licence and you're all set &ndash; and we'd love to hear if you build something cool.</p>
+<div class="row">
+
+<p>We encourage developers to take our data and build something amazing with it, so don't hold back. We'd love to hear about anything that you've made using our data!</p>
 
 <h3>Want More?</h3>
 
-<p>Sometimes you want to build something a bit more in-depth than is possible with our regular Open Data downloads. Fortunately, we've got a whole set of APIs which let you tap into our data in far more depth, and an OAuth authentication system which lets you both authenticate University staff and students and interact with their data.</p>
+<p>Sometimes you want to build something a bit more in-depth than is possible with our published Open Data. Fortunately, we've got a whole set of APIs which let you tap into our data in far more depth, and an OAuth authentication system which lets you both authenticate people at the University and interact with their data.</p>
 
 <p>If you're interested in using our APIs, just drop us an email.</p>
 
-<p><a class="btn btn-primary" href="mailto:lncd@lincoln.ac.uk"><i class="icon-envelope"></i> Email Us</a></p>
+<p><a class="btn" href="mailto:lncd@lincoln.ac.uk"><i class="icon-envelope"></i> Email Us</a></p>
