@@ -148,6 +148,42 @@ class Render extends CI_Controller {
 		
 	}
 	
+	public function catalogue_json()
+	{
+		echo 'Catalogue JSON' . PHP_EOL;
+		
+		$resources = json_decode(file_get_contents($_SERVER['NUCLEUS_BASE_URI'] . 'resources?access_token=' . $_SERVER['NUCLEUS_TOKEN'] . '&limit=400000'));
+		
+		$json = array(
+			'metadata' => array(
+				'description' => 'The University of Lincoln\'s Library catalogue.'
+			)
+		);
+		
+		foreach ($resources->results as $resource)
+		{
+		
+			var_dump($resource);
+		
+			$resource_object = array(
+				'_id' => $resource->bib_id,
+				'type' => 'book'
+			);
+			if (isset($resource->title))
+			{
+				$resource_object['title'] = $resource->title;
+			}
+			$json['resources'][] = $resource_object;
+			unset($resource_object);
+		}
+		
+		$fp = fopen('data/library-catalogue.json', 'w');
+		
+		fputs($fp, json_encode($json));
+		
+		fclose($fp);
+	}
+	
 	public function colleges_csv()
 	{
 	
